@@ -25,6 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:150',
+            'type_id' => 'nullable|exists:types,id',
             'programma' => 'required|max:150',
             'data' => 'required|date',
             'emulazione' => 'required|max:150',
@@ -37,6 +38,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'nome.required' => 'Il nome del progetto è obbligatorio',
             'nome.max' => 'Il nome del progetto può essere lungo massimo 150 caratteri',
+            'type_id.exists' => 'Questo tipo non esiste',
             'programma.required' => 'Il programma del progetto è obbligatorio',
             'programma.max' => 'Il programma del progetto può essere lungo massimo 150 caratteri',
             'data.required' => 'La data del progetto è obbligatoria',
