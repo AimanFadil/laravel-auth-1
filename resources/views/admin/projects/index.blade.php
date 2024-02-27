@@ -20,7 +20,7 @@
                             <th scope="col">Slug</th>
                             <th scope="col">Programma</th>
                             <th scope="col">Data</th>
-                            <th scope="col">Emulazione</th>
+                            <th scope="col">Tipo</th>
                             <th scope="col">Descrizione</th>
                             <th scope="col">Vedi</th>
                             <th scope="col">Modifica</th>
@@ -35,7 +35,7 @@
                                 <td>{{ $project->slug }}</td>
                                 <td>{{ $project->programma }}</td>
                                 <td>{{ $project->data }}</td>
-                                <td>{{ $project->emulazione }}</td>
+                                <td>{{ $project->type_id ? $project->type->id : 'Senza Tipo' }}</td>
                                 <td>{{ $project->descrizione }}</td>
                                 <td>
                                     <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">Clicca</a>

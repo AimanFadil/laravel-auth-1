@@ -42,6 +42,15 @@
                         @enderror
                     </div>
                     <div class="form-group py-2">
+                        <label for="type_id" class="control-label">Emulazione</label>
+                        <select type="select" name="type_id" id="type_id" placeholder="tipo" class="form-select">
+                            <option value="">Tipo</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->nome }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group py-2">
                         <label for="descrizione" class="control-label">Descrizione</label>
                         <input type="text" name="descrizione" id="descrizione" value="{{ old('descrizione') }}"
                             placeholder="descrizione" class="form-control">
