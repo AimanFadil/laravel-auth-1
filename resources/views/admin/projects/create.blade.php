@@ -49,6 +49,9 @@
                                 <option value="{{ $type->id }}">{{ $type->nome }}</option>
                             @endforeach
                         </select>
+                        @error('type_id')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group py-2">
                         <label for="descrizione" class="control-label">Descrizione</label>

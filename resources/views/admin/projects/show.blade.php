@@ -12,7 +12,8 @@
                         <p class="card-text">{{ $project->programma }}</p>
                         <p class="card-text">{{ $project->data }}</p>
                         <p class="card-text">{{ $project->descrizione }}</p>
-                        <p class="card-text text-success">{{ $project->type_id ? $project->type->name : 'Senza Tipo' }}</p>
+                        <p class="card-text text-success">{{ $project->type ? $project->type->nome : 'Senza Tipo' }}
+                        </p>
                     </div>
                 </div>
             </div>
