@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+use App\Models\Project;
+
 
 class TypeController extends Controller
 {
@@ -15,7 +19,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -25,7 +31,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.create', compact('types'));
     }
 
     /**
@@ -47,7 +54,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -58,7 +65,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        $types = Type::all();
+        return view('admin.types.edit', compact('types', 'type'));
     }
 
     /**
@@ -81,6 +89,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index');
     }
 }
