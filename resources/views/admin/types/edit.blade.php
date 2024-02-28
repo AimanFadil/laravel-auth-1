@@ -4,22 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12 ">
-                <h1>Modifica il tipo: {{ $type->nome }}</h1>
+                <h1>Modifica il tipo</h1>
             </div>
             <div class="col-12">
                 <form action="{{ route('admin.types.update', $type->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="form-group py-2">
-                        <label for="type_id" class="control-label">Emulazione</label>
-                        <select type="select" name="type_id" id="type_id" placeholder="tipo" class="form-select">
-                            <option value="">Tipo</option>
-                            @foreach ($types as $type)
-                                <option value="{{ $type->id }}" @selected($type->id == old('type_id', $type->type ? $type->type->id : ''))>{{ $type->nome }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('type_id')
+                        <label for="nome" class="control-label">Nome Tipo</label>
+                        <input type="text" name="nome" id="nome" placeholder="Tipo" value=""
+                            class="form-control">
+                        @error('nome')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

@@ -42,7 +42,7 @@
                         @enderror
                     </div>
                     <div class="form-group py-2">
-                        <label for="type_id" class="control-label">Emulazione</label>
+                        <label for="type_id" class="control-label">Tipo</label>
                         <select type="select" name="type_id" id="type_id" placeholder="tipo" class="form-select">
                             <option value="">Tipo</option>
                             @foreach ($types as $type)

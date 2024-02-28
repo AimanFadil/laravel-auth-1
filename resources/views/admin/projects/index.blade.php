@@ -36,7 +36,7 @@
                                 <td>{{ $project->programma }}</td>
                                 <td>{{ $project->data }}</td>
                                 <td><a
-                                        href="{{ route('admin.types.index') }}">{{ $project->type_id ? $project->type->id : 'Senza Tipo' }}</a>
+                                        href="{{ route('admin.types.index') }}">{{ $project->type_id ? $project->type->nome : 'Senza Tipo' }}</a>
                                 </td>
                                 <td>{{ $project->descrizione }}</td>
                                 <td>
