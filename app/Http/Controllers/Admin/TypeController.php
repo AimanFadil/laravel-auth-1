@@ -43,7 +43,19 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->all();
+        $type = new Type();
+
+
+
+
+        $type->fill($form_data);
+        $slug = Str::slug($form_data['nome'], '-');
+        $type->slug = $slug;
+
+        $type->save();
+
+        return redirect()->route('admin.types.index');
     }
 
     /**
@@ -78,7 +90,14 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->all();
+
+
+        $slug = Str::slug($form_data['nome'], '-');
+        $form_data['slug'] = $slug;
+        $type->update($form_data);
+
+        return redirect()->route('admin.types.index');
     }
 
     /**
